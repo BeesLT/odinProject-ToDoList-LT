@@ -1,6 +1,6 @@
 let projects = [];
 let todos = [];
-let currentProject = null;
+let currentProjectId = null;
 
 function createProject(name, description, dueDate) {
     return {
@@ -13,6 +13,7 @@ function createProject(name, description, dueDate) {
 
 function createToDo(name, description, dueDate, priority, projectId) {
     return {
+        id: crypto.randomUUID(),
         name,
         description,
         dueDate,
@@ -32,6 +33,7 @@ function inputProject() {
         li.style.cursor = "pointer";
 
         li.addEventListener("click", () => {
+            alert("Click on that tiny button to add a to-do");
             currentProjectId = project.id;
             inputToDo();
         });
@@ -78,7 +80,7 @@ document.getElementById("project-btn").addEventListener("click", () => {
 
 document.getElementById("todo-btn").addEventListener("click", () => {
     if (!currentProjectId) {
-        alert("Select a project dummy");
+        alert("A project hasn't been chosen yet (click on one)");
         return;
     }
 
