@@ -30,7 +30,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./odinProject-restaurentPage-LT/dist #points to your dist folder
+          path: ./odinProject-ToDoList-LT/dist #points to your dist folder
 
       - name: Deploy to GitHub Pages
         id: deployment
